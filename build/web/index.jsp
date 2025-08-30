@@ -1,57 +1,44 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Email List Application</title>
-    <link rel="stylesheet" href="styles/main.css" type="text/css">
+    <meta charset="UTF-8">
+    <title>Email List</title>
+    <link rel="stylesheet" type="text/css" href="styles/main.css">
 </head>
 <body>
 <div class="container">
-    <div class="header">
-        <img src="images/murachlogo.jpg" class="logo" alt="Logo">
-        <h1>Join our email list</h1>
-    </div>
+    <img src="images/murachlogo.jpg" alt="Murach Logo" class="logo">
+    <h1>Join Our Email List</h1>
 
-    <form action="emailList" method="post">
-        <input type="hidden" name="action" value="add">
+    <form action="thanks.jsp" method="post">
+        <label>First Name:</label>
+        <input type="text" name="firstName"><br>
 
-        <fieldset>
-            <legend>Your information:</legend>
-            <label>First Name</label>
-            <input type="text" name="firstName">
+        <label>Last Name:</label>
+        <input type="text" name="lastName"><br>
 
-            <label>Last Name</label>
-            <input type="text" name="lastName">
+        <label>Email:</label>
+        <input type="email" name="email"><br>
 
-            <label>Email</label>
-            <input type="email" name="email">
+        <label>Date of Birth:</label>
+        <input type="date" name="dob"><br>
 
-            <label>Date of Birth</label>
-            <input type="date" name="dob">
-        </fieldset>
+        <label>Heard From:</label>
+        <select name="heardFrom">
+            <option value="">-- Select --</option>
+            <option value="Search Engine">Search Engine</option>
+            <option value="Friend">Friend</option>
+            <option value="Advertisement">Advertisement</option>
+        </select><br>
 
-        <fieldset>
-            <legend>How did you hear about us?</legend>
-            <input type="radio" name="heardFrom" value="Search engine" checked> Search engine
-            <input type="radio" name="heardFrom" value="Word of mouth"> Word of mouth
-            <input type="radio" name="heardFrom" value="Social Media"> Social Media
-            <input type="radio" name="heardFrom" value="Other"> Other
-        </fieldset>
+        <label>Wants Updates:</label>
+        <input type="checkbox" name="wantsUpdates" value="Yes"> Yes<br>
 
-        <fieldset>
-            <legend>Would you like to receive announcements about new CDs and special offers?</legend>
-            <input type="checkbox" name="wantsUpdates" value="yes"> YES, I'd like that.<br>
-            <input type="checkbox" name="emailOK" value="yes"> YES, please send me email announcements.
-        </fieldset>
+        <label>Contact Via:</label>
+        <input type="radio" name="contactVia" value="Email"> Email
+        <input type="radio" name="contactVia" value="Phone"> Phone<br>
 
-        <label>Please contact me by:</label>
-        <select name="contactVia">
-            <option value="Both">Email or postal mail</option>
-            <option value="Email">Email only</option>
-            <option value="Postal">Postal mail only</option>
-        </select>
-
-        <br><br>
-        <!-- Nút Submit bình thường -->
         <input type="submit" value="Submit">
     </form>
 </div>
