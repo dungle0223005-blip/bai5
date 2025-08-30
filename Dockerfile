@@ -1,14 +1,11 @@
-# Base image Tomcat 9 + JDK 17 (ổn định với JSP)
-FROM tomcat:9.0.91-jdk17
+FROM tomcat:9.0-jdk17
 
-# Xóa app mặc định (ROOT, examples, docs...)
-RUN rm -rf /usr/local/tomcat/webapps/*
+# Xóa ROOT mặc định
+RUN rm -rf /usr/local/tomcat/webapps/ROOT
 
-# Copy mã nguồn webapp của bạn vào ROOT
-COPY ./src/main/webapp/ /usr/local/tomcat/webapps/ROOT/
+# Copy WAR thành ROOT.war
+COPY dist/ch05_ex1_email.war /usr/local/tomcat/webapps/ROOT.war
 
-# Expose cổng 8080
 EXPOSE 8080
 
-# Start Tomcat
 CMD ["catalina.sh", "run"]
